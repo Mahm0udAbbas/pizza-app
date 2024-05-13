@@ -5,10 +5,12 @@ import Cart from "./features/cart/Cart";
 import CreateOrder from "./features/order/CreateOrder";
 import Order from "./features/order/Order";
 import AppLayout from "./ui/AppLayout";
+import NotFound from "./ui/Error";
 export default function App() {
   const rounter = createBrowserRouter([
     {
       element: <AppLayout />,
+      errorElement: <NotFound />,
 
       children: [
         { path: "/", element: <Home /> },
@@ -16,6 +18,7 @@ export default function App() {
           path: "/menu",
           element: <Menu />,
           loader: menuLoader,
+          errorElement: <NotFound />,
         },
         {
           path: "/cart",
